@@ -3,7 +3,7 @@ import React from 'react';
 const OnlineCourseSection = () => {
     return (
         <section className="py-16  lg:py-[154px] bg-[#fff7f9]">
-            <div className="px-4 lg:px-20 lg:max-w-screen-xl container mx-auto ">
+            <div className="px-4 lg:px-32  container mx-auto ">
                 <div className="flex flex-col lg:flex-row gap-6 md:gap-14 lg:gap-6">
                     <div className="w-full lg:w-[737px]">
                         <div>

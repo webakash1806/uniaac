@@ -14,7 +14,7 @@ const HeroSection = () => {
                     opacity: 0.15,
                 }}
             ></div>
-            <div className='relative z-10 flex flex-col items-center justify-center md:justify-around'>
+            <div className='relative mx-auto container  z-10 flex flex-col items-center justify-center md:justify-between'>
                 <div className='flex flex-col items-center justify-center w-full md:pr-8 lg:pr-12 md:flex-row md:justify-around'>
                     <div className='p-3 container mb-10 px-5 text-center md:text-left md:w-[27rem] lg:w-[37rem]'>
                         <h1 className='text-[2.2rem] md:text-[2.4rem] lg:text-[2.6rem] font-semibold flex flex-col lg:gap-3 lg:flex-row'>
