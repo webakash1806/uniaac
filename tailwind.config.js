@@ -7,12 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: '#FF204E',       // Main color
-        primary: '#A0153E',    // Primary color
-        dark: '#5D0E41',       // Dark color
-        secondary: '#00224D',  // Secondary color
+        main: '#181751',       // Main color
+        primary: '#FBB215',    // Primary color
         white: '#FFFFFF',      // White
         black: '#000000',      // Black
+      },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },

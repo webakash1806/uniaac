@@ -1,11 +1,9 @@
-import React from 'react'
-import service4 from '../assets/service4.webp'
-import { FaCarSide } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
 
 const HeroSection = () => {
     return (
-        <main className='text-white pt-20 relative min-h-[95vh] py-6  w-full bg-gradient-to-b  overflow-x-hidden from-[#0c0e11]  to-[#00023f] via-[#00032a]'>
+        <main className='text-white  relative min-h-[85vh] py-2 w-full bg-gradient-to-b overflow-x-hidden from-[#0d0f25] to-main'>
             <div
                 className="absolute inset-0 z-1"
                 style={{
@@ -14,73 +12,86 @@ const HeroSection = () => {
                     opacity: 0.15,
                 }}
             ></div>
-            <div className='relative mx-auto container  z-10 flex flex-col items-center justify-center md:justify-between'>
-                <div className='flex flex-col items-center justify-center w-full md:pr-8 lg:pr-12 md:flex-row md:justify-around'>
-                    <div className='p-3 container mb-10 px-5 text-center md:text-left md:w-[27rem] lg:w-[37rem]'>
-                        <h1 className='text-[2.2rem] md:text-[2.4rem] lg:text-[2.6rem] font-semibold flex flex-col lg:gap-3 lg:flex-row'>
-                            Find Out Best
-                            <span className='text-main'>
-                                Online Courses
-                            </span>
+            <section className="relative px-4 py-10 text-center z-1 ">
+                {/* Heading Section */}
+                <div className="flex flex-col items-center justify-center max-w-3xl mx-auto text-white">
+                    <div className='w-fit'>
+                        <h1 className="sm:text-6xl text-5xl md:text-7xl  tracking-wide font-[600] lg:text-[4.8rem]">
+                            Why <span className="text-primary">UNIAC?</span>
                         </h1>
-                        <p className='font-[400] text-[0.97rem] py-3 tracking-[0.4px] lg:pb-8'>
-                            Explore diverse coding courses, master programming languages, and build real-world projects with expert-led online tutorials for comprehensive skill development.
-                        </p>
-                        <div>
-                            <Link to='/course'>
-                                <button className='bg-main p-2 px-8 font-[500] tracking-wide rounded-md text-[1.05rem] hover:bg-primary'>
-                                    Explore Courses
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className='flex items-center gap-2'>
-                        <div>
-                            <img src={service4} alt="" className='w-[10rem] sm:h-[15rem] h-[12rem] sm:w-[13rem]  object-cover rounded-lg shadow-md hover:shadow-royalYellow' />
-                        </div>
-                        <div className='flex flex-col items-start justify-center gap-2'>
-                            <img src={service4} alt="" className='w-[10.5rem] h-[8rem] sm:h-[10rem] object-cover sm:w-[13rem] rounded-xl shadow-md hover:shadow-royalYellow' />
-                            <img src={service4} alt="" className='w-[11.5rem] sm:w-[15rem] h-[11rem] object-cover rounded-xl shadow-md hover:shadow-royalYellow' />
+                        <div className="flex gap-1 mt-8 mb-6">
+                            <span className="inline-block w-[50%] h-1 bg-white rounded-full"></span>
+                            <span className="inline-block w-1 h-1 bg-white rounded-full"></span>
+                            <span className="inline-block w-1 h-1 bg-white rounded-full"></span>
+                            <span className="inline-block w-1 h-1 bg-white rounded-full"></span>
                         </div>
                     </div>
 
+                    {/* Static "Learn" text and typewriter effect for dynamic text */}
+                    <h2 className="flex items-center justify-center gap-3 py-4 text-[1.9rem] font-semibold text-primary">
+                        Learn{' '}
+                        <h3 className='text-white'>
+                            <TypeAnimation
+                                sequence={[
+                                    'Digital Marketing',
+                                    1500,
+                                    'UI/UX Design',
+                                    1500,
+
+                                ]}
+                                speed={30} // Typing speed
+                                wrapper="span"
+                                deletionSpeed={30}
+                                repeat={Infinity} // Loop the animation
+                            />
+                        </h3>
+                    </h2>
+
+                    <p className="mt-4 text-xl font-[400] font-roboto">
+                        Gateway To A <span className="font-semibold text-primary">High Paying Skill</span> Starts Here 🚀
+                    </p>
+
+                    {/* CTA Button */}
+                    <button className="px-6 py-2 mt-6 text-black transition duration-300 bg-white border rounded-md shadow-md border-primary hover:bg-primary">
+                        ➔ Explore Our Courses
+                    </button>
                 </div>
-                <div className='flex flex-wrap mt-16 items-center justify-center w-full gap-6 my-8 text-secondary font-semibold'>
-                    <div className=' flex w-fit gap-4 px-4 pr-6 rounded bg-gray-200 text-black shadow-[2px_2px_5px_#fff,-2px_-2px_1px_#000] p-2 flex-wrap items-center justify-center'>
-                        <FaCarSide className='p-[5px] rounded-sm w-10 bg-[#ff770062] ' />
-                        <div className='min-w-[9.5rem]'>
-                            <h1 className='font-bold text-[1.1rem] text-secondary'>60%</h1>
-                            <p className='text-[0.87rem]'>Average Salary Hike</p>
-                        </div>
-                    </div>
-                    <div className=' flex w-fit gap-4 px-4 pr-6 rounded bg-gray-200 shadow-[2px_2px_5px_#fff,-2px_-2px_1px_#000] p-2 flex-wrap items-center justify-center'>
-                        <FaCarSide className='p-[5px] rounded-sm w-10 bg-[#ff770062] ' />
 
-                        <div className='min-w-[9.5rem]'>
-                            <h1 className='font-bold text-[1.1rem] '>150+</h1>
-                            <p className='text-[0.87rem]'>Different Courses</p>
-                        </div>
-                    </div>
-                    <div className=' flex w-fit gap-4 px-4 pr-6 rounded bg-gray-200 shadow-[2px_2px_5px_#fff,-2px_-2px_1px_#000] p-2 flex-wrap items-center justify-center'>
-                        <FaCarSide className='p-[5px] rounded-sm w-10 bg-[#ff770062] ' />
-
-                        <div className='min-w-[9.5rem]'>
-                            <h1 className='font-bold text-[1.1rem] '>50+</h1>
-                            <p className='text-[0.87rem]'>Hiring Partners</p>
-                        </div>
-                    </div>
-                    <div className=' flex w-fit gap-4 px-4 pr-6 rounded bg-gray-200 shadow-[2px_2px_5px_#fff,-2px_-2px_1px_#000] p-2 flex-wrap items-center justify-center'>
-                        <FaCarSide className='p-[5px] rounded-sm w-10 bg-[#ff770062] ' />
-
-                        <div className='min-w-[9.5rem]'>
-                            <h1 className='font-bold text-[1.1rem] '>24&#xd7;7</h1>
-                            <p className='text-[0.87rem]'>Customer Support</p>
-                        </div>
+                {/* Featured Logos */}
+                <div className="relative mt-12 z-1">
+                    <h3 className="text-xl text-white">Featured in:</h3>
+                    <div className="flex justify-center gap-4 mt-4 md:gap-8">
+                        {/* Logos */}
+                        <img
+                            src="https://shorturl.at/7wGUd"
+                            alt="Josh Talks"
+                            className="w-1/6 rounded-md md:w-28"
+                        />
+                        <img
+                            src="https://shorturl.at/DRsMK"
+                            alt="Silicon India"
+                            className="w-1/6 rounded-md md:w-28"
+                        />
+                        <img
+                            src="https://shorturl.at/Idwni"
+                            alt="TOI"
+                            className="w-1/6 rounded-md md:w-28"
+                        />
+                        <img
+                            src="https://shorturl.at/SMKjM"
+                            alt="TEDx"
+                            className="w-1/6 rounded-md md:w-28"
+                        />
+                        <img
+                            src="https://tinyurl.com/5efkzanx"
+                            alt="Forbes"
+                            className="w-1/6 rounded-md md:w-28"
+                        />
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
-    )
-}
+    );
+};
 
-export default HeroSection
+export default HeroSection;
