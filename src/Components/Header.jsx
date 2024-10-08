@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaArrowDown, FaBars, FaFacebookSquare, FaInstagramSquare, FaTimes, FaWhatsappSquare } from 'react-icons/fa';
 import { FaSquarePhone, FaSquareXTwitter } from 'react-icons/fa6';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { Link, useLocation } from 'react-router-dom'; // Importing useLocation to track the current path
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importing useLocation to track the current path
 import logo from '../assets/logo.svg'
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation(); // Getting the current URL
     const menuRef = useRef();
+    const navigate = useNavigate()
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false); // New state for About dropdown
 
@@ -38,7 +39,7 @@ const Header = () => {
         <>
             {isOpen && <div className="fixed inset-0 bg-[#00072c] opacity-70 z-[100]" onClick={() => setIsOpen(false)}></div>}
 
-            <header className="bg-white text-gray-900 sticky top-0 w-full font-[500] shadow-lg z-[1000]">
+            <header className="bg-white text-gray-900 px-4 sticky top-0 w-full font-[500] shadow-lg z-[1000]">
                 <div className="container relative z-[1000] mx-auto flex justify-between items-center md:px-12 lg:px-16 py-2">
                     <img src={logo} alt="UNIAC logo" className='w-[11rem]' />
                     {/* Desktop Menu */}
@@ -89,11 +90,13 @@ const Header = () => {
                         {/* About Dropdown */}
                         <div className="relative group">
                             <button
+                                onClick={() => navigate('/about')}
                                 className={`relative flex items-center gap-1 transition-all duration-300 hover:text-primary ${location.pathname.startsWith('/about') ? 'text-primary' : ''}`}
                             >
-                                About <IoMdArrowDropdown className='text-[1.4rem] mt-1' />
+                                About
+                                {/* <IoMdArrowDropdown className='text-[1.4rem] mt-1' /> */}
                             </button>
-                            <div className="absolute left-0 hidden group-hover:block bg-white shadow-md text-[0.9rem] rounded w-[11rem] py-2 z-[1000]">
+                            {/* <div className="absolute left-0 hidden group-hover:block bg-white shadow-md text-[0.9rem] rounded w-[11rem] py-2 z-[1000]">
                                 <Link
                                     to="/about/company"
                                     className="block px-4 py-2 hover:bg-gray-200 hover:text-primary"
@@ -106,7 +109,7 @@ const Header = () => {
                                 >
                                     Our Team
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
 
                         <Link
@@ -117,6 +120,10 @@ const Header = () => {
                             {location.pathname === '/contact' && <span className="absolute left-0 right-0 bottom-[-3px] h-[2px] bg-primary"></span>}
                         </Link>
                     </nav>
+
+                    <button className='hidden p-2 px-4 rounded md:block bg-main text-primary'>
+                        Book Demo class
+                    </button>
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden">
@@ -199,12 +206,15 @@ const Header = () => {
                         {/* Mobile About Dropdown */}
                         <div className="relative">
                             <button
-                                onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                                onClick={() => navigate('/about')}
+
+                                // onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
                                 className={`relative transition-all flex duration-300 hover:text-primary w-fit ${location.pathname.startsWith('/about') ? 'text-primary' : ''}`}
                             >
-                                About <IoMdArrowDropdown className='text-[1.4rem] mt-1' />
+                                About
+                                {/* <IoMdArrowDropdown className='text-[1.4rem] mt-1' /> */}
                             </button>
-                            {isAboutDropdownOpen && (
+                            {/* {isAboutDropdownOpen && (
                                 <div className="mt-2 ml-3 space-y-2 text-[0.9rem]">
                                     <Link
                                         to="/about/company"
@@ -221,7 +231,7 @@ const Header = () => {
                                         Our Team
                                     </Link>
                                 </div>
-                            )}
+                            )} */}
                         </div>
 
                         <Link
@@ -232,6 +242,10 @@ const Header = () => {
                             Contact
                             {location.pathname === '/contact' && <span className="absolute left-0 right-0 bottom-[-3px] h-[2px] bg-primary"></span>}
                         </Link>
+
+                        <button className='p-2 text-[0.9rem] w-[11rem] mt-2 rounded bg-main text-primary'>
+                            Book Demo class
+                        </button>
                     </nav>
 
                     {/* Social Media Icons */}

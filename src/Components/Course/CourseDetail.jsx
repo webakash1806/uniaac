@@ -166,6 +166,9 @@ const CourseDetail = () => {
                                             Marketing
                                         </a>
                                     </div>
+                                    <button className='p-2 my-2 font-semibold rounded bg-primary text-main '>
+                                        Download Brochure
+                                    </button>
                                 </div>
                             </div>
                         </div>
