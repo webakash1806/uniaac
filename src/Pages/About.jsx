@@ -74,21 +74,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        {/* Buttons */}
-                        <div className="flex mt-6 space-x-4">
-                            <a
-                                href="#"
-                                className="px-4 py-2 text-gray-700 transition duration-300 border border-gray-700 rounded hover:bg-gray-700 hover:text-white"
-                            >
-                                History
-                            </a>
-                            <a
-                                href="#"
-                                className="px-4 py-2 text-white transition duration-300 bg-blue-600 rounded hover:bg-blue-700"
-                            >
-                                Our Board
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </section>
