@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { FaHome, FaChevronRight, FaPlayCircle, FaStar, FaStarHalfAlt, FaUserFriends, FaUser, FaCalendarAlt, FaSignal, FaGlobe, FaTag, FaCheck, FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { FaHome, FaChevronRight, FaPlayCircle, FaStar, FaStarHalfAlt, FaUserFriends, FaUser, FaCalendarAlt, FaSignal, FaGlobe, FaTag, FaCheck, FaChevronDown, FaChevronUp, FaClock } from "react-icons/fa";
+import { Link, useParams } from 'react-router-dom';
+import { useCourseList } from '../Hooks/useCourseList';
+import { IoIosArrowDropright, IoIosArrowDroprightCircle } from 'react-icons/io';
 
 const CourseDetail = () => {
+
+    const paramsId = useParams()
+    console.log(paramsId)
 
     const [activeTab, setActiveTab] = useState("overview");
 
@@ -55,6 +60,9 @@ const CourseDetail = () => {
         },
     ];
 
+    const data = useCourseList?.filter((data) => {
+        return data?.id === Number(paramsId?.id)
+    })
 
     return (
         <div className=''>
@@ -72,10 +80,7 @@ const CourseDetail = () => {
                         <span className="item">
                             <a href="https://talemy.themespirit.com/demo-1/courses/">Courses</a>
                         </span>
-                        <FaChevronRight className="mx-2" />
-                        <span className="item">
-                            <a href="https://talemy.themespirit.com/demo-1/course-category/business/">Business</a>
-                        </span>
+
                         <FaChevronRight className="mx-2" />
                         <span className="item last-item">The Complete Digital Marketing Bootcamp</span>
                     </nav>
@@ -97,7 +102,7 @@ const CourseDetail = () => {
                                         <FaPlayCircle className="text-5xl text-white" />
                                     </span>
                                     <img
-                                        src="https://talemy.themespirit.com/demo-1/wp-content/uploads/sites/14/2019/02/12-540x360.jpg"
+                                        src={data[0]?.image}
                                         alt="Course Preview"
                                         className="object-cover w-full rounded-md"
                                     />
@@ -108,21 +113,28 @@ const CourseDetail = () => {
                         {/* Course Details */}
                         <div className="lg:w-2/3 lg:order-1 lg:pr-8">
                             <div className="course-intro__content">
-                                <h1 className="text-4xl font-semibold tracking-wide font-roboto">The Complete Digital Marketing Bootcamp</h1>
+                                <h1 className="text-4xl font-semibold tracking-wide font-roboto">{data[0]?.title}</h1>
                                 <div className="mt-6 course-intro__meta">
                                     {/* Rating */}
-                                    <div className="flex items-center mb-4 text-[0.92rem] tracking-wide">
-                                        <div className="flex items-center ldcr-rating">
-                                            <span className="flex text-yellow-400">
-                                                <FaStar />
-                                                <FaStar />
-                                                <FaStar />
-                                                <FaStar />
-                                                <FaStarHalfAlt />
-                                            </span>
-                                            <span className="ml-2">4.5</span>
-                                            <span className="ml-2 text-gray-200">(2 ratings)</span>
+                                    <div className="flex items-center mb-2">
+                                        <div className="flex text-yellow-400">
+                                            {Array.from({ length: 5 }, (_, index) => {
+                                                // Calculate the number of full stars and the fractional part
+                                                const fullStars = Math.floor(data[0]?.rating); // Integer part
+                                                const hasHalfStar = data[0]?.rating - fullStars >= 0.3; // Check if there's a half star (consider .3 and above)
+
+                                                // Determine the star display
+                                                if (index < fullStars) {
+                                                    return <FaStar key={index} className="text-yellow-400" />; // Full star
+                                                } else if (index === fullStars && hasHalfStar) {
+                                                    return <FaStarHalfAlt key={index} className="text-yellow-400" />; // Half star
+                                                } else {
+                                                    return <FaStar key={index} className="text-gray-300" />; // Empty star
+                                                }
+                                            })}
                                         </div>
+                                        <span className="ml-2 text-[0.95rem]">{data[0]?.rating}</span>
+                                        <span className="ml-1 text-sm text-gray-200">({data[0]?.totalReviews} reviews)</span>
                                     </div>
 
                                     {/* Enrolled Students */}
@@ -143,17 +155,11 @@ const CourseDetail = () => {
                                         <FaCalendarAlt className="inline text-primary" /> Last updated June 21, 2019
                                     </div>
 
-                                    <div className='flex gap-3 text-[0.92rem] tracking-wide'>
-                                        {/* Course Level */}
-                                        <div className="mb-2">
-                                            <FaSignal className="inline text-primary" /> Beginner
-                                        </div>
-
-                                        {/* Language */}
-                                        <div className="mb-2">
-                                            <FaGlobe className="inline text-primary" /> English
-                                        </div>
-                                    </div>
+                                    <ul className="flex items-center justify-between gap-6 pb-2 text-sm text-gray-100 w-fit">
+                                        <li className='flex items-center gap-1'><FaClock className='text-primary' /> {data[0]?.duration}</li>
+                                        <li className='flex items-center gap-1'><FaSignal className='text-primary' /> {data[0]?.level}</li>
+                                        <li className='flex items-center gap-1'><FaGlobe className='text-primary' /> {data[0]?.language}</li>
+                                    </ul>
 
                                     {/* Categories */}
                                     <div className="mb-2  text-[0.92rem] tracking-wide">
@@ -245,108 +251,79 @@ const CourseDetail = () => {
                     <section className="py-8 bg-white">
                         <div className="container mx-auto">
                             <div className="w-full">
-                                <div className="p-4">
+                                <div className="p-4 space-y-3">
                                     <p className="text-gray-700">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in finibus neque.
-                                        Vivamus in ipsum quis elit vehicula tempus vitae quis lacus. Vestibulum interdum diam
-                                        non mi cursus venenatis. Morbi lacinia libero et elementum vulputate. Vivamus et
-                                        facilisis mauris. Maecenas nec massa auctor, ultricies massa eu, tristique erat.
-                                        Vivamus in ipsum quis elit vehicula tempus vitae quis lacus. Eu pellentesque,
-                                        accumsan tellus leo, ultrices mi dui lectus sem nulla eu. Eu pellentesque, accumsan
-                                        tellus leo, ultrices mi dui lectus sem nulla eu. Maecenas arcu, nec ridiculus
-                                        quisque orci, vulputate mattis risus erat.
+                                        {data[0]?.des?.para1}
+                                    </p>
+                                    <p className="text-gray-700">
+                                        {data[0]?.des?.para2}
+                                    </p>
+                                    <p className="text-gray-700">
+                                        {data[0]?.des?.para3}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </section>
-
                     {/* Section 2 */}
-                    <section className="py-8 bg-gray-100">
+                    <section className="py-8 bg-gray-200 rounded-lg">
                         <div className="container mx-auto">
                             <div className="w-full">
                                 <div className="p-4">
-                                    <h2 className="text-2xl font-bold text-gray-800">What will you learn?</h2>
-                                    <p className="mt-4 text-gray-700">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in finibus neque.
-                                        Vivamus in ipsum quis elit vehicula tempus vitae quis lacus. Vestibulum interdum diam
-                                        non mi cursus venenatis. Morbi lacinia libero et elementum vulputate.
-                                    </p>
+                                    <h2 className="text-2xl font-bold text-gray-800">What you will learn?</h2>
+                                    {data[0]?.learnFromCourse?.map((data, ind) => {
+                                        return <div key={ind} className="flex items-start justify-start mt-1 text-gray-700">
+                                            <IoIosArrowDroprightCircle className=' mt-[0.23rem] min-w-[2rem]  text-start min-text-[1.1rem]' />
+                                            <p>
+                                                {data}
+                                            </p>
+                                        </div>
+                                    })}
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section className="py-10 bg-white">
+                        <div className="container p-4 mx-auto">
+
+                            <h2 className="text-2xl font-bold text-gray-800">{data[0]?.whyYouLearnThis?.title}</h2>
+                            <div className="py-4 space-y-3 ">
+                                <p className="text-gray-700">
+                                    {data[0]?.des?.para1}
+                                </p>
+                                <p className="text-gray-700">
+                                    {data[0]?.des?.para2}
+                                </p>
+                                <p className="text-gray-700">
+                                    {data[0]?.des?.para3}
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    {/* Section 2 */}
+                    <section className="py-8 bg-gray-200 rounded-lg">
+                        <div className="container mx-auto">
+                            <div className="w-full">
+                                <div className="p-4">
+                                    <h2 className="mb-2 text-2xl font-bold text-gray-800">Key features</h2>
+                                    {data[0]?.keyFeatures?.map((data, ind) => {
+                                        return <div key={ind} className="flex items-start justify-start mt-1 text-gray-700">
+                                            <IoIosArrowDroprightCircle className=' mt-[0.23rem] min-w-[2rem]  text-start min-text-[1.1rem]' />
+                                            <p>
+                                                {data}
+                                            </p>
+                                        </div>
+                                    })}
+
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    {/* Section 3 */}
-                    <section className="py-8 bg-white">
-                        <div className="container flex flex-wrap mx-auto">
-                            {/* Left Column */}
-                            <div className="w-full p-4 md:w-1/2">
-                                <h2 className="text-2xl font-bold text-gray-800">What you will learn?</h2>
-                                <ul className="mt-4 space-y-2">
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">
-                                            Maecenas in finibus neque. Vivamus in ipsum quis elit vitae quis.
-                                        </span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Vestibulum interdum diam non mi cursus venenatis.</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Morbi lacinia libero et elementum vulputate.</span>
-                                    </li>
-                                </ul>
-                            </div>
 
-                            {/* Right Column */}
-                            <div className="w-full p-4 md:w-1/2">
-                                <h2 className="text-2xl font-bold text-gray-800">Key features</h2>
-                                <ul className="mt-4 space-y-2">
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">
-                                            Maecenas in finibus neque. Vivamus in ipsum quis elit vitae quis.
-                                        </span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Vestibulum interdum diam non mi cursus venenatis.</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-green-500">
-                                            <FaCheck />
-                                        </span>
-                                        <span className="ml-2 text-gray-700">Morbi lacinia libero et elementum vulputate.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
                 </div>
             }
             {
@@ -380,7 +357,7 @@ const CourseDetail = () => {
                     ))}
                 </div>
             }
-        </div>
+        </div >
     )
 }
 

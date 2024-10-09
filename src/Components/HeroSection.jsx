@@ -3,7 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const HeroSection = () => {
     return (
-        <main className='text-white  relative min-h-[85vh] py-2 w-full bg-gradient-to-b overflow-x-hidden from-[#0d0f25] to-main'>
+        <main className='text-white  relative  py-2 w-full bg-gradient-to-b overflow-x-hidden from-[#0d0f25] to-main'>
             <div
                 className="absolute inset-0 z-1"
                 style={{

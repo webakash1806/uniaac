@@ -7,6 +7,7 @@ import ShortCourse from '../Components/Course/ShortCourse'
 import CTAsection from '../Components/CTAsection'
 import CounterSection from '../Components/CounterSection'
 import AlumniSection from '../Components/AlumniSection'
+import { Testimonial } from '../Components/Testimonial'
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <CourseCard />
             <CounterSection />
             <AlumniSection />
+            <Testimonial />
         </div>
     )
 }

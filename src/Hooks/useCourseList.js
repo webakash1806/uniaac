@@ -4,15 +4,15 @@ const useCourseList = [
         id: 1,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
@@ -68,15 +68,15 @@ const useCourseList = [
         id: 2,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
@@ -132,15 +132,15 @@ const useCourseList = [
         id: 3,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
@@ -196,15 +196,15 @@ const useCourseList = [
         id: 4,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
@@ -260,15 +260,15 @@ const useCourseList = [
         id: 5,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
@@ -324,15 +324,15 @@ const useCourseList = [
         id: 6,
         card: {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
-            featuresMain: [
-                "4 month advance training",
-                "10+ Projects",
-                "100% placement"
-            ]
         },
+        price: 0,
+        rating: 4.5,
+        totalReviews: 10,
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-8fJ2NTn1YsblCG6XKITZH253Y3w257yOg&s",
         language: "Hinglish",
         title: "Title of course",
+        duration: "2 months",
+        level: "Beginner",
         features: [
             {
                 icon: "",
