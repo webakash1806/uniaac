@@ -15,7 +15,7 @@ const Home = () => {
             <HeroSection />
             <Client />
             <OnlineCourseSection />
-            <ShortCourse />
+            {/* <ShortCourse /> */}
             <CTAsection />
             <CourseCard />
             <CounterSection />

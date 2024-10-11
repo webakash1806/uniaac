@@ -49,17 +49,17 @@ const Footer = () => {
                                 </div>
                                 <ul>
                                     <li className="text-[#e0e4ff] leading-8 text-[0.9rem] hover:text-white">
-                                        <Link to="/services">Foundation Program</Link>
+                                        <Link to="/course/1">Foundation Program</Link>
                                     </li>
                                     <li className="text-[#e0e4ff] leading-8 text-[0.9rem] hover:text-white">
-                                        <Link to="/services">Skill Degree Program</Link>
+                                        <Link to="/course/2">Skill Degree Program</Link>
                                     </li>
                                     <li className="text-[#e0e4ff] leading-8 text-[0.9rem] hover:text-white">
-                                        <Link to="/services">Masters program</Link>
+                                        <Link to="/course/3">Masters program</Link>
                                     </li>
 
                                     <li className="text-[#e0e4ff] leading-8 text-[0.9rem] hover:text-white">
-                                        <Link to="/services">Diploma Program</Link>
+                                        <Link to="/course/4">Diploma Program</Link>
                                     </li>
                                 </ul>
                             </div>

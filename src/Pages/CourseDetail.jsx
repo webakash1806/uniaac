@@ -3,7 +3,9 @@ import { FaHome, FaChevronRight, FaPlayCircle, FaStar, FaStarHalfAlt, FaUserFrie
 import { Link, useParams } from 'react-router-dom';
 import { useCourseList } from '../Hooks/useCourseList';
 import { IoIosArrowDropright, IoIosArrowDroprightCircle } from 'react-icons/io';
-
+import Marquee from "react-fast-marquee"; // Install this package using 'npm i react-fast-marquee'
+import cn from 'classnames';
+import { IoCheckmarkCircle } from 'react-icons/io5';
 const CourseDetail = () => {
 
     const paramsId = useParams()
@@ -64,25 +66,27 @@ const CourseDetail = () => {
         return data?.id === Number(paramsId?.id)
     })
 
+    console.log(data)
+
     return (
         <div className=''>
-            <div className="text-white course-intro bg-main p-[5vw] lg:px-[8vw]">
+            <div className="text-white course-intro bg-main p-[5vw] px-[4px] sm:px-[5vw] lg:px-[8vw]">
                 {/* Breadcrumbs */}
                 <div className="container px-4 mx-auto">
-                    <nav className="flex items-center text-sm text-gray-50 breadcrumbs" aria-label="breadcrumb">
+                    <nav className="flex items-center sm:text-sm text-[0.62rem]  tracking-wide text-gray-50 breadcrumbs" aria-label="breadcrumb">
                         <span className="item first-item">
                             <Link to={'/'} className="flex items-center">
                                 <FaHome className="mr-1" />
                                 Home
                             </Link>
                         </span>
-                        <FaChevronRight className="mx-2" />
+                        <FaChevronRight className="mx-1" />
                         <span className="item">
-                            <a href="https://talemy.themespirit.com/demo-1/courses/">Courses</a>
+                            Courses
                         </span>
 
-                        <FaChevronRight className="mx-2" />
-                        <span className="item last-item">The Complete Digital Marketing Bootcamp</span>
+                        <FaChevronRight className="mx-1" />
+                        <span className="item last-item">{data[0]?.title}</span>
                     </nav>
                 </div>
 
@@ -146,13 +150,13 @@ const CourseDetail = () => {
                                     <div className="mb-2 text-[0.92rem] tracking-wide">
                                         <FaUser className="inline text-primary" /> Created by{" "}
                                         <a className="text-purple-200">
-                                            Robert Moreno
+                                            Shivam Singh
                                         </a>
                                     </div>
 
                                     {/* Last Updated */}
                                     <div className="mb-2 text-[0.92rem] tracking-wide">
-                                        <FaCalendarAlt className="inline text-primary" /> Last updated June 21, 2019
+                                        <FaCalendarAlt className="inline text-primary" /> Last updated June 21, 2024
                                     </div>
 
                                     <ul className="flex items-center justify-between gap-6 pb-2 text-sm text-gray-100 w-fit">
@@ -181,7 +185,7 @@ const CourseDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className=" sm:px-[5vw] lg:px-[8vw] bg-gray-100">
+            <div className=" sm:px-[5vw] lg:px-[8vw] bg-gray-100 border-t">
                 <ul className="grid grid-cols-4 text-[0.9rem] sm:text-[1rem] sm:gap-3 font-semibold border-b course-tabs">
                     {/* Overview Tab */}
                     <li
@@ -189,12 +193,8 @@ const CourseDetail = () => {
                             }`}
                         onClick={() => handleTabClick("overview")}
                     >
-                        <a
-                            href="#course-section__overview"
-                            className="course-tab"
-                        >
-                            Overview
-                        </a>
+
+                        Overview
                     </li>
 
                     {/* Curriculum Tab */}
@@ -204,12 +204,19 @@ const CourseDetail = () => {
                             }`}
                         onClick={() => handleTabClick("curriculum")}
                     >
-                        <a
-                            href="#course-section__curriculum"
-                            className="course-tab"
-                        >
-                            Curriculum
-                        </a>
+
+                        Curriculum
+                    </li>
+
+                    <li
+                        className={`cursor-pointer text-center  p-3 px-2 sm:px-6 ${activeTab === "outcomes" ? "text-primary bg-main border-b-2 border-primary" : "text-gray-600"
+
+                            }`}
+                        onClick={() => handleTabClick("outcomes")}
+
+                    >
+
+                        Outcomes
                     </li>
 
                     {/* Instructors Tab */}
@@ -219,34 +226,17 @@ const CourseDetail = () => {
                             }`}
                         onClick={() => handleTabClick("instructors")}
                     >
-                        <a
-                            href="#course-section__instructors"
-                            className="course-tab"
-                        >
-                            Instructors
-                        </a>
+
+                        Instructors
                     </li>
 
                     {/* Reviews Tab */}
-                    <li
-                        className={`cursor-pointer text-center  p-3 px-2 sm:px-6 ${activeTab === "reviews" ? "text-primary bg-main border-b-2 border-primary" : "text-gray-600"
 
-                            }`}
-                        onClick={() => handleTabClick("reviews")}
-
-                    >
-                        <a
-                            href="#course-section__reviews"
-                            className="course-tab"
-                        >
-                            Reviews
-                        </a>
-                    </li>
                 </ul>
             </div>
             {
                 activeTab === "overview" &&
-                <div role="tabpanel" className='px-[5vw] md:px-[6vw] lg:px-[8vw]' tabIndex="0" aria-labelledby="content" id="ld-tab-content-53">
+                <div role="tabpanel" className='px-[4px] sm:px-[5vw] md:px-[6vw] lg:px-[8vw]' tabIndex="0" aria-labelledby="content" id="ld-tab-content-53">
                     {/* Section 1 */}
                     <section className="py-8 bg-white">
                         <div className="container mx-auto">
@@ -266,11 +256,11 @@ const CourseDetail = () => {
                         </div>
                     </section>
                     {/* Section 2 */}
-                    <section className="py-8 bg-gray-200 rounded-lg">
+                    <section className="py-4 bg-[#EEEEEE] shadow-md rounded-lg">
                         <div className="container mx-auto">
                             <div className="w-full">
                                 <div className="p-4">
-                                    <h2 className="text-2xl font-bold text-gray-800">What you will learn?</h2>
+                                    <h2 className="mb-4 text-2xl font-bold text-gray-800">What you will learn?</h2>
                                     {data[0]?.learnFromCourse?.map((data, ind) => {
                                         return <div key={ind} className="flex items-start justify-start mt-1 text-gray-700">
                                             <IoIosArrowDroprightCircle className=' mt-[0.23rem] min-w-[2rem]  text-start min-text-[1.1rem]' />
@@ -304,15 +294,15 @@ const CourseDetail = () => {
 
 
                     {/* Section 2 */}
-                    <section className="py-8 bg-gray-200 rounded-lg">
+                    <section className="py-4 bg-[#FAF3E3] shadow-md rounded-lg">
                         <div className="container mx-auto">
                             <div className="w-full">
                                 <div className="p-4">
-                                    <h2 className="mb-2 text-2xl font-bold text-gray-800">Key features</h2>
+                                    <h2 className="mb-4 text-2xl font-bold text-gray-800">Key features</h2>
                                     {data[0]?.keyFeatures?.map((data, ind) => {
-                                        return <div key={ind} className="flex items-start justify-start mt-1 text-gray-700">
-                                            <IoIosArrowDroprightCircle className=' mt-[0.23rem] min-w-[2rem]  text-start min-text-[1.1rem]' />
-                                            <p>
+                                        return <div key={ind} className="flex items-start justify-start mt-1 ">
+                                            <IoCheckmarkCircle className=' mt-[0.15rem] text-green-500 min-w-[2rem]  text-start text-[1.2rem]' />
+                                            <p className='text-gray-700'>
                                                 {data}
                                             </p>
                                         </div>
@@ -323,19 +313,53 @@ const CourseDetail = () => {
                         </div>
                     </section>
 
+                    <section className='p-4 pt-8 pb-0 my-10 rounded-lg shadow-md bg-[#F1EAFF] '>
+                        <h2 className="mx-2 text-2xl font-bold text-gray-800">Tools you will learn</h2>
+                        <Marquee pauseOnHover speed={30} gradient={false} className="">
+                            {data[0]?.toolsLearn?.map((review) => {
+                                return <figure key={review}
+                                    className={cn(
+                                        "relative w-[12rem] sm:w-[15rem] mx-2 cursor-pointer overflow-hidden",
+                                        // light styles
+
+
+                                    )}
+                                >
+                                    <img src={review} alt="" />
+                                </figure>
+                            })}
+                        </Marquee>
+                    </section>
+                    <section className='p-4 pt-8 my-10 rounded-lg shadow-md bg-[#FCECDD] '>
+                        <h2 className="mx-2 mb-2 text-2xl font-bold text-gray-800">Hiring Partners</h2>
+                        <Marquee pauseOnHover direction="right" speed={30} gradient={false} className="">
+                            {data[0]?.hiring?.map((review) => {
+                                return <figure key={review}
+                                    className={cn(
+                                        "relative w-[12rem] my-16 sm:w-[15rem] mx-2 cursor-pointer overflow-hidden",
+                                        // light styles
+
+
+                                    )}
+                                >
+                                    <img src={review} alt="" />
+                                </figure>
+                            })}
+                        </Marquee>
+                    </section>
 
                 </div>
             }
             {
                 activeTab === "curriculum" &&
-                <div className="container py-10 px-[5vw] lg:px-[8vw] mx-auto">
-                    {accordionData.map((data, index) => (
+                <div className="container py-10 px-[4px] sm:px-[5vw] lg:px-[8vw] mx-auto">
+                    {data[0]?.curriculum?.map((data, index) => (
                         <div key={index + 1} className="mb-6 overflow-hidden border border-gray-300 rounded shadow-sm">
                             <div
                                 className="flex items-center justify-between p-4 py-[0.7rem] bg-gray-100 cursor-pointer"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className="text-lg font-semibold">{data.title}</span>
+                                <span className="text-lg font-semibold">{data.topic}</span>
                                 <span className="text-gray-500">
                                     {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
                                 </span>
@@ -344,7 +368,7 @@ const CourseDetail = () => {
                                 {openIndex === index && (
                                     <div className="p-4 bg-white">
                                         <ul className="ml-5 list-disc">
-                                            {data.content.map((item, i) => (
+                                            {data.topicDetail.map((item, i) => (
                                                 <li key={i} className="mb-2">
                                                     {item}
                                                 </li>
@@ -355,6 +379,45 @@ const CourseDetail = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            }
+            {
+                activeTab === "outcomes" &&
+                <div className="container py-10 px-[4px] sm:px-[5vw] lg:px-[8vw] mx-auto">
+
+                    <div className="grid grid-cols-1 gap-8 p-4 sm:grid-cols-2 lg:grid-cols-4">
+                        {data[0]?.learningOutcomes?.map((box, index) => {
+                            return <div key={index + 1} className="flex flex-col items-center mb-6">
+                                <img
+                                    loading="lazy"
+                                    decoding="async"
+
+                                    src={box?.image}
+                                    alt={`outcome ${index + 1}`}
+                                    className="w-[9.5rem] h-auto mb-4"
+                                />
+                                <h3 className="text-lg font-semibold text-center">{box?.title}</h3>
+                            </div>
+                        }
+                        )}
+                    </div>
+                </div>
+            }
+            {
+                activeTab === "instructors" &&
+                <div className="container py-10 px-[4px] sm:px-[5vw] lg:px-[8vw] mx-auto">
+                    <h2 className="mb-8 text-2xl font-bold text-center">Our Instructors</h2>
+                    <div className="grid grid-cols-1 gap-8 mx-auto lg:gap-12 sm:grid-cols-2 md:grid-cols-3 w-fit">
+                        {data[0]?.instructors?.map((instructor, ind) => {
+                            return <div key={ind + 1} className="overflow-hidden lg:max-w-[20rem] max-w-[19rem] bg-white rounded-lg shadow-md">
+                                <img src={instructor?.image} alt={instructor?.title} className="object-cover w-full h-64" />
+                                <div className="p-4 text-center">
+                                    <h2 className="text-lg font-semibold">{instructor?.name}</h2>
+                                    <h3 className="text-md">{instructor?.title}</h3>
+                                </div>
+                            </div>
+                        })}
+                    </div>
                 </div>
             }
         </div >

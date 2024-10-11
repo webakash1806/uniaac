@@ -43,7 +43,7 @@ const Header = () => {
                 <div className="container relative z-[1000] mx-auto flex justify-between items-center md:px-12 lg:px-16 py-2">
                     <img src={logo} alt="UNIAC logo" className='w-[11rem]' />
                     {/* Desktop Menu */}
-                    <nav className="hidden relative z-[1000] md:flex space-x-8  text-[1.1rem]">
+                    <nav className="hidden relative z-[1000] lg:flex space-x-8  text-[1.1rem]">
                         <Link
                             to="/"
                             className={`relative transition-all duration-300 hover:text-primary ${location.pathname === '/' ? 'text-primary' : ''}`}
@@ -61,25 +61,25 @@ const Header = () => {
                             </button>
                             <div className="absolute left-0 hidden group-hover:block bg-white shadow-md text-[0.9rem] rounded w-[11rem] py-2 z-[1000]">
                                 <Link
-                                    to="/courses/seo"
+                                    to="/course/1"
                                     className="block px-4 py-2 hover:bg-gray-200 hover:text-primary"
                                 >
                                     Foundation Program
                                 </Link>
                                 <Link
-                                    to="/courses/ppc"
+                                    to="/course/2"
                                     className="block px-4 py-2 hover:bg-gray-200 hover:text-primary"
                                 >
                                     Skill Degree Program
                                 </Link>
                                 <Link
-                                    to="/courses/seo"
+                                    to="/course/3"
                                     className="block px-4 py-2 hover:bg-gray-200 hover:text-primary"
                                 >
                                     Masters Program
                                 </Link>
                                 <Link
-                                    to="/courses/ppc"
+                                    to="/course/4"
                                     className="block px-4 py-2 hover:bg-gray-200 hover:text-primary"
                                 >
                                     Diploma Program
@@ -121,12 +121,12 @@ const Header = () => {
                         </Link>
                     </nav>
 
-                    <button className='hidden p-2 px-4 rounded md:block bg-main text-primary'>
+                    <button className='hidden p-2 px-4 rounded lg:block bg-main text-primary'>
                         Book Demo class
                     </button>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                         <button onClick={toggleMenu}>
                             <svg
                                 className="w-6 h-6"
@@ -172,28 +172,28 @@ const Header = () => {
                                 <div className="mt-2 ml-3 space-y-2 text-[0.9rem]">
                                     <Link
 
-                                        to="/courses/seo"
+                                        to="/course/1"
                                         className="block transition-all duration-300 w-fit hover:text-primary"
                                         onClick={toggleMenu}
                                     >
                                         Foundation Program
                                     </Link>
                                     <Link
-                                        to="/courses/ppc"
+                                        to="/course/2"
                                         className="block transition-all duration-300 w-fit hover:text-primary"
                                         onClick={toggleMenu}
                                     >
                                         Skill Degree Program
                                     </Link>
                                     <Link
-                                        to="/courses/seo"
+                                        to="/course/3"
                                         className="block transition-all duration-300 w-fit hover:text-primary"
                                         onClick={toggleMenu}
                                     >
                                         Masters Program
                                     </Link>
                                     <Link
-                                        to="/courses/ppc"
+                                        to="/course/4"
                                         className="block transition-all duration-300 w-fit hover:text-primary"
                                         onClick={toggleMenu}
                                     >
